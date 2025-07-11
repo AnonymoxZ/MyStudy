@@ -49,8 +49,6 @@ nav#col-contents li {
     left: 40px;
     width: 110px;
     padding: 7px;
-    border: 1px solid blue;
-    background-color: purple;
     cursor: pointer;
     transition: .2s;
 }

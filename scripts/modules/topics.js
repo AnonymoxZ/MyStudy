@@ -1,9 +1,5 @@
 /* This module contains subjects list to  */
 
-const studys = ['Essay','Portuguese','Literatury','Geograph',
-    'Philosophy','History','Sociology','Biology','Physical','Chemistry','Math'];
-
-
 const essay = ['Texto dissertativo-argumentativo',
   'Como fazer uma introdução',
   'Como desenvolver sua redação',
@@ -13,7 +9,7 @@ const essay = ['Texto dissertativo-argumentativo',
   'Coesão e coerência',
   'Citações nas redações do Enem'
 ];
-    
+
 
 const languages = [
   'Funções de linguagem',
@@ -187,8 +183,14 @@ const math = [
 ];
 
 
-// Export all subjects
-export {studys ,essay, languages, 
-  literatury, geograph, philosophy,
-  history, sociology, biology,
-  physical, chemistry, math};
+const topicStudies = new Map()
+const studys = ['essay','languages','literatury','geograph',
+'philosophy','history','sociology','biology','physical','chemistry','math'];
+const arrSubjects = [essay, languages, literatury, geograph, philosophy, history, sociology, biology, physical, chemistry, math]
+
+for(let i=0;i<=studys.length;i++){
+  topicStudies[studys[i]] = arrSubjects[i];
+}
+
+
+export {studys, topicStudies};
