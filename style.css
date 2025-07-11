@@ -1,0 +1,106 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Inder&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    width: 100em;
+    height: 100%;
+    min-height: 100%;
+    background-color: black;
+}
+
+
+header#header {
+    position: absolute;
+}
+figure#background-header img {
+    width: 100em;
+    position: fixed;
+    }
+
+
+/* Section studies */
+section#section-studies {
+    position: absolute;
+    font-family: 'inder';
+    top: 430px;
+    left: 80em;
+    color: #05e8e8;
+    text-shadow: 4px 1px 2px rgb(212, 10, 37);
+    font-style: italic;
+}
+
+section#section-studies h1 {
+    font-weight: bolder;
+    position: relative;
+    font-size: 60px;
+    top: -9px;
+    font-family: 'Playfair';
+}
+nav#col-contents li {
+    position: relative;
+    top: -10px;
+    font-size: 20px;
+    left: 40px;
+    width: 110px;
+    padding: 7px;
+    border: 1px solid blue;
+    background-color: purple;
+    cursor: pointer;
+    transition: .2s;
+}
+nav#col-contents li:hover {
+    color: beige;
+}
+nav#col-contents li:active{
+    color: yellow;
+}
+
+/* Col topics subject */
+section#content-link {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 450px;
+    font-family: 'Inder';
+    color: yellow;
+}
+section#content-link h2 {
+    position: relative;
+    font-size: 35pt;
+    text-align: center;
+    top: -50px;
+}
+div.content-material {
+    position: relative;
+    border: 2px solid black;
+    background-color: rgba(5, 5, 85, .3);
+    border-radius: 50px;
+    text-shadow: 3px 2px 2px rgba(0,0,0,.9);
+    font-size: 20px;
+    padding: 70px;
+    width: 500pt;
+    min-height: 100%;
+}
+section#content-link li {
+    position: relative;
+    top: -40px;
+}
+ul#list-topics li {
+    position: relative;
+    padding: 10px;
+    left: -25px;
+}
+input[type=checkbox] {
+  position: relative;
+  color: blue;
+  width: 15pt;
+  top: 4px;
+  height: 15pt;
+    
+}
