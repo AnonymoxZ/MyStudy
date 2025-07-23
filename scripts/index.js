@@ -1,54 +1,54 @@
-import { studys, topicStudies} from "./modules/topics.js";
-import { capitalize } from "./modules/text.js";
+import { studys, topicStudies} from "./modules/topics.js"
+import { capitalize } from "./modules/text.js"
 
 
-// create function to select subjects links and show in subjects section
+// this function select subjects links and show in subjects section
 window.showTopic = (event)=>{
-    const titleSubject = document.querySelector('#title-subject');
-    const listTopics = document.querySelector('#list-topics');
-    let contentText = event.target.innerText;
-    titleSubject.innerText = capitalize(contentText);
-    listTopics.innerHTML = ``;
-    let title = contentText.toString().toLowerCase();
+    const titleSubject = document.querySelector('#title-subject')
+    const listTopics = document.querySelector('#list-topics')
+    let contentText = event.target.innerText
+    titleSubject.innerText = capitalize(contentText)
+    listTopics.innerHTML = ``
+    let title = contentText.toString().toLowerCase()
     topicStudies[title].forEach((e)=>{
-        listTopics.innerHTML += `<li class="topic">${e} &nbsp <input type="checkbox" onchange="saveTopic(event)" name="${e}"></li>`;
+        listTopics.innerHTML += `<li class="topic">${e} &nbsp <input type="checkbox" onchange="saveTopic(event)" name="${e}"></li>`
     })
 
 }
 
-const ulListStudies = document.querySelector('#list-studies');
-let liStudies = document.querySelectorAll('#list-studies > li');
+const ulListStudies = document.querySelector('#list-studies')
+let liStudies = document.querySelectorAll('#list-studies > li')
 liStudies = [...liStudies]
 for(let i=0;i<studys.length;i++){
-    let subject = document.createElement('li');
-    subject.setAttribute('class', 'content-item');
-    subject.setAttribute('onclick', 'showTopic(event)');
-    subject.innerText = capitalize(`${studys[i]}`);
-    ulListStudies.appendChild(subject);
+    let subject = document.createElement('li')
+    subject.setAttribute('class', 'content-item')
+    subject.setAttribute('onclick', 'showTopic(event)')
+    subject.innerText = capitalize(`${studys[i]}`)
+    ulListStudies.appendChild(subject)
 }
 
 
 // Function to save checkboxes checked [ localStorage ]
 window.saveTopic = (event)=>{
-    let cont = localStorage.length;
-    let topic = event.target.name;
-    let checkbox = event.target.checked;
+    let cont = localStorage.length
+    let topic = event.target.name
+    let checkbox = event.target.checked
     
     if(localStorage.length == 0){
-        localStorage.setItem(0, topic);
-        cont++;
+        localStorage.setItem(0, topic)
+        cont++
     }else{
         if(!checkbox){
             for(let i=0;i<=localStorage.length;i++){
-                let keyItem = localStorage.key(i);
-                let valueItem = localStorage.getItem(keyItem);
+                let keyItem = localStorage.key(i)
+                let valueItem = localStorage.getItem(keyItem)
                 if(topic == valueItem){
-                    localStorage.removeItem(keyItem);
+                    localStorage.removeItem(keyItem)
                 }
             }
         }else if(checkbox){
-            localStorage.setItem(cont, topic);
-            cont++;
+            localStorage.setItem(cont, topic)
+            cont++
         }
     }
 }
@@ -56,18 +56,18 @@ window.saveTopic = (event)=>{
 
 // Function to verify checkbox marked
 ulListStudies.addEventListener('click', ()=>{
-    let checkboxArr = document.querySelectorAll('input[type="checkbox"]');
-    checkboxArr = [...checkboxArr];
-    let dataLocalStorageArr = [];
+    let checkboxArr = document.querySelectorAll('input[type="checkbox"]')
+    checkboxArr = [...checkboxArr]
+    let dataLocalStorageArr = []
     for(let i=0;i<localStorage.length;i++){
-        let keyData = localStorage.key(i);
-        dataLocalStorageArr.push(localStorage.getItem(keyData));
+        let keyData = localStorage.key(i)
+        dataLocalStorageArr.push(localStorage.getItem(keyData))
     }
     // save checkbox checked
     checkboxArr.forEach((e)=>{
         /* The loop search all identifier name includes in localStorage */
         if(dataLocalStorageArr.includes(e.name)){
-            e.setAttribute('checked', '');
-        };
-    });
-});
+            e.setAttribute('checked', '')
+        }
+    })
+})

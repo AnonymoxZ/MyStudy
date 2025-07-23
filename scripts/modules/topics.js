@@ -56,6 +56,7 @@ const geograph = [
 ];
 
 const philosophy = [
+  'Oque é conhecimento?',
   'Filosofia Clássica e Pré-socráticos',
   'Sócrates e seu legado',
   'Platão e Aristóteles',
@@ -141,6 +142,8 @@ const physical = [
 ];
 
 const chemistry = [
+  'Introdução a química',
+  'Química básica',
   'Ligações químicas',
   'Forças intermoleculares',
   'Química inorgânica',
@@ -158,6 +161,8 @@ const chemistry = [
 ];
 
 const math = [
+  'As quatro operações básicas',
+  'Potenciação e Radiciação',
   'Porcentagem',
   'Regra de Três',
   'Unidades de medida',
