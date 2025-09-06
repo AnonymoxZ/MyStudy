@@ -1,6 +1,7 @@
-/* This module contains subjects list to  */
+/* Topics grid ENEM  */
 
-const essay = ['Texto dissertativo-argumentativo',
+const essay = [
+  'Texto dissertativo-argumentativo',
   'Como fazer uma introdução',
   'Como desenvolver sua redação',
   'Proposta de intervenção',
@@ -33,7 +34,8 @@ const literatury = [
   'Romantismo',
   'Pré-modernismo e Modernismo',
   'Modernismo em Portugal: 1ª fase e 2ª fase',
-  'Poesia, poema e prosa'
+  'Poesia, poema e prosa',
+  'Gêneros: Romance'
 ];
 
 const geograph = [
@@ -63,7 +65,11 @@ const philosophy = [
   'Filósofos medievais',
   'Renascimento',
   'Descartes e Bacon',
-  'Iluminismo'
+  'Iluminismo',
+  'Estoicismo',
+  'Nihilismo',
+  'Friedrich Nietzsche',
+
 ];
 
 const history = [
@@ -105,7 +111,13 @@ const sociology = [
 const biology = [
   'Biologia Celular: O que são células? Tipos de células',
   'Células procariontes e células eucariontes',
-  'Fisiologia Humana (sistemas digestivo, respiratório, reprodutor, nervoso, circulatório etc)',
+  'Fisiologia Humana: (sistemas digestivo)',
+  'Fisiologia humana: (respiratório)',
+  'Fisiologia humana: (reprodutor masculino)',
+  'Fisiologia humana: (reprodutor feminino)',
+  'Fisiologia humana: (nervoso)',
+  'Fisiologia humana: (circulatório)',
+  'Fisiologia humana: (esquelético)',
   'DNA e RNA',
   'Células-tronco e clonagem',
   '1ª Lei de Mendel e 2ª Lei de Mendel',
@@ -138,7 +150,9 @@ const physical = [
   'Circuitos elétricos',
   'Força magnética',
   'Refração e Lentes',
-  'Hidrostática'
+  'Hidrostática',
+  'Isaac Newton',
+  'Galileu Galilei'
 ];
 
 const chemistry = [

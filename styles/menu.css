@@ -1,0 +1,34 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+
+div.menu-pages {
+    position: fixed;
+    display: flex;
+    justify-content: left;
+    top: 0px;
+}
+div.menu-pages menu {
+    position: relative;
+    display: flex;
+    color: bisque;
+}
+div.menu-pages li {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid rgba(0,0,0,.3);
+    padding: 15px;
+    background-color: rgba(63, 25, 1, .5);
+    font-family: 'Inder';
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: bisque;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}

@@ -1,21 +1,10 @@
 import { studys, topicStudies} from "./modules/topics.js"
-import { capitalize } from "./modules/text.js"
+import { titleCase } from "./modules/tools.js"
 
 
-// this function select subjects links and show in subjects section
-window.showTopic = (event)=>{
-    const titleSubject = document.querySelector('#title-subject')
-    const listTopics = document.querySelector('#list-topics')
-    let contentText = event.target.innerText
-    titleSubject.innerText = capitalize(contentText)
-    listTopics.innerHTML = ``
-    let title = contentText.toString().toLowerCase()
-    topicStudies[title].forEach((e)=>{
-        listTopics.innerHTML += `<li class="topic">${e} &nbsp <input type="checkbox" onchange="saveTopic(event)" name="${e}"></li>`
-    })
 
-}
 
+// load list studies
 const ulListStudies = document.querySelector('#list-studies')
 let liStudies = document.querySelectorAll('#list-studies > li')
 liStudies = [...liStudies]
@@ -23,8 +12,22 @@ for(let i=0;i<studys.length;i++){
     let subject = document.createElement('li')
     subject.setAttribute('class', 'content-item')
     subject.setAttribute('onclick', 'showTopic(event)')
-    subject.innerText = capitalize(`${studys[i]}`)
+    subject.innerText = titleCase(`${studys[i]}`)
     ulListStudies.appendChild(subject)
+}
+
+
+// this function select subjects links and show in subjects section
+window.showTopic = (event)=>{
+    const titleSubject = document.querySelector('#title-subject')
+    const listTopics = document.querySelector('#list-topics')
+    let contentText = event.target.innerText
+    titleSubject.innerText = titleCase(contentText)
+    listTopics.innerHTML = ``
+    let title = contentText.toString().toLowerCase()
+    topicStudies[title].forEach((e)=>{
+        listTopics.innerHTML += `<li class="topic">${e} &nbsp <input type="checkbox" onchange="saveTopic(event)" name="${e}"></li>`
+    })
 }
 
 
@@ -63,7 +66,6 @@ ulListStudies.addEventListener('click', ()=>{
         let keyData = localStorage.key(i)
         dataLocalStorageArr.push(localStorage.getItem(keyData))
     }
-    // save checkbox checked
     checkboxArr.forEach((e)=>{
         /* The loop search all identifier name includes in localStorage */
         if(dataLocalStorageArr.includes(e.name)){
