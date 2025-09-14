@@ -1,24 +1,20 @@
 // tools to texts
 
-function stringFormated(string){
+export function stringFormated(string){
     /**
      * add security to inputs
      * avoid xss atacks
      */
-    try{
-        let arrStr = String(string.split(''))
-        if(arrStr.includes('<') || arrStr.includes('>') || string.trim() === ' '){
-            return '';
-        }else{
-            return string;
-        }
-    }catch{
+    let arrStr = String(string.split(''))
+    if(arrStr.includes('<') || arrStr.includes('>') || string.trim() === ' '){
         return '';
+    }else{
+        return string;
     }
 }
 
 
-function formatData(data){
+export function formatData(data){
     /**
      * format data to use in localStorage
      * ex: "New Topic" => "NEW_TOPIC"
@@ -27,7 +23,7 @@ function formatData(data){
 }
 
 
-function titleCase(text){
+export function titleCase(text){
     /**
      * ex: "NEW_TOPIC" => "New Topic"
      */
@@ -40,8 +36,3 @@ function titleCase(text){
     let strArr = title.join(' ')
     return stringFormated(strArr.toString())
 }
-
-
-
-
-export { titleCase, stringFormated, formatData };

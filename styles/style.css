@@ -76,7 +76,7 @@ section#content-link {
 section#content-link h2 {
     position: relative;
     font-size: 35pt;
-    text-align: center;
+    text-align: left;
     top: -50px;
 }
 div.content-material {
@@ -97,6 +97,7 @@ section#content-link li {
 ul#list-topics li {
     position: relative;
     padding: 10px;
+    text-align: left;
     left: -25px;
 }
 input[type=checkbox] {
@@ -132,4 +133,12 @@ div.new-topic button {
     font-weight: bolder;
     background-color: blueviolet;
     cursor: pointer;
+}
+button.btn-delete-topic {
+    position: relative;
+    padding: 1px 4px 1px 4px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: red;
+    top: -1.5px;
 }

@@ -1,8 +1,9 @@
 import { titleCase, stringFormated, formatData } from "../modules/tools.js"
-import { ulStudies, listTopics, titleSubject, buttonNewTopic } from "./init.js"
+import { ulStudies, listTopics, titleSubject, buttonNewTopic, buttonDeleteStudy } from "./init.js"
 
 
-function createStudy(n){
+
+export function createStudy(n){
     if(stringFormated(n).trim()===''){
         alert('String void! Try again')
     }else{
@@ -21,31 +22,52 @@ function createStudy(n){
     }
 }
 
-
-
-function showTopic(event){
-    buttonNewTopic.removeAttribute('disabled')
-    let titleStudy = event.target.innerText
-    let nameStudy = event.target.getAttribute('name')
-    let keySto = localStorage.getItem(nameStudy)
-    titleSubject.innerText = titleStudy
-    let arrStudy = JSON.parse(keySto)
-    listTopics.innerHTML = ``
-    if(arrStudy.length > 0){
-        arrStudy.forEach((e)=>{
-        listTopics.innerHTML += `
-            <li class="topic">
-                &nbsp
-                ${e}
-                <input type="checkbox" name="${stringFormated(formatData(e))}">
-            </li>`
+export function deleteStudy(event){
+    let study = event.target.getAttribute('name')
+    let valueSto = localStorage.getItem(study)
+    if(confirm(`Delete "${study}"? `)){
+        let strKey = JSON.parse(valueSto) ?? []
+        strKey.forEach((e)=>{
+        localStorage.removeItem(e.toString().toUpperCase())
         })
+        localStorage.removeItem(study)
+        titleSubject.innerText = 'Your subject here'
+        listTopics.innerHTML = ``
+        buttonNewTopic.setAttribute('disabled', '')
+        buttonDeleteStudy.setAttribute('disabled', '')
     }
-    buttonNewTopic.setAttribute('name', nameStudy)
+    window.location.reload(true) // POG
+}
+
+export function showTopic(event){
+    try{
+        let nameStudy = event.target.getAttribute('name')
+        let keySto = localStorage.getItem(nameStudy)
+        let arrStudy = JSON.parse(keySto)
+        listTopics.innerHTML = ``
+        if(arrStudy.length > 0 || nameStudy!==null){
+            let titleStudy = event.target.innerText
+            titleSubject.innerText = titleStudy
+            buttonNewTopic.removeAttribute('disabled')
+            arrStudy.forEach((e)=>{
+            let nameKey = stringFormated(formatData(e))
+            listTopics.innerHTML += `
+                <li class="topic">
+                    &nbsp
+                    ${e}
+                    <input type="checkbox" name="${nameKey}">
+                    <button class='btn-delete-topic' name="${nameKey}">X</button>
+                </li>`
+            })
+        }
+        buttonNewTopic.setAttribute('name', nameStudy)
+    }catch{
+        console.log('Error in function ShowTopic() | Null select')
+    }
 }
 
 
-function newTopic(topic, nameStudy){
+export function newTopic(topic, nameStudy){
     if(stringFormated(topic).trim()===''){
         alert('Name invalid! Try again')
     }else{
@@ -53,8 +75,11 @@ function newTopic(topic, nameStudy){
         let nameKey = stringFormated(formatData(topic))
         let liTopic = document.createElement('li')
         listTopics.innerHTML += `
-            <li class="topic">${nameTopic} &nbsp 
+            <li class="topic">
+                &nbsp
+                ${nameTopic} 
                 <input type="checkbox" name="${nameKey}">
+                <button class='btn-delete-topic' name="${nameKey}">X</button>
             </li>`
         listTopics.appendChild(liTopic)
 
@@ -68,7 +93,7 @@ function newTopic(topic, nameStudy){
 }
 
 
-function saveTopic(){
+export function saveTopic(){
     window.addEventListener('click', ()=>{
     let checkbox = document.querySelectorAll('input[type="checkbox"]')
     checkbox=[...checkbox]
@@ -76,7 +101,7 @@ function saveTopic(){
         e.addEventListener('click', (event)=>{
         if(e.checked){
             let nameTopic = event.target.getAttribute('name')
-            let topicData = nameTopic
+            let topicData = String(nameTopic.toUpperCase())
             localStorage.setItem(topicData, topicData)
         }else{
             let nameTopic = event.target.getAttribute('name')
@@ -89,4 +114,25 @@ function saveTopic(){
 }
 
 
-export { createStudy, saveTopic }
+export function deleteTopic(nameStudy){
+    let buttonDeleteTopic = document.querySelectorAll('.btn-delete-topic')
+    let buttonsDelTopicArr = [...buttonDeleteTopic]
+    let studyArr = JSON.parse(localStorage.getItem(nameStudy))
+    for(let btn of buttonsDelTopicArr){
+        btn.addEventListener('click', ()=>{
+            let nameButton = btn.getAttribute('name')
+            // console.log(nameButton)
+            // localStorage.removeItem(nameButton)
+            // btn.parentElement.remove()
+            studyArr.forEach((e,i)=>{
+                if(formatData(e)==nameButton){
+                    // console.log(i, e)
+                    studyArr.splice(0,i)
+                }
+            })
+
+        })
+    }
+    // console.log(localStorage.length)
+        // alert(`${nameStudy} guarda ${nameTopic}`)
+}

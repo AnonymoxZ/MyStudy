@@ -1,6 +1,6 @@
-import { reloadPage, loadTopicCheckeds } from "./loadContent.js"
-import { createStudy, saveTopic } from "./update.js"
-import { newFolderStudy, ulStudies, buttonNewTopic } from "./init.js"
+import { loadContent } from "./loadContent.js"
+import { createStudy, newTopic, showTopic, deleteStudy, deleteTopic } from "./update.js"
+import { newFolderStudy, ulStudies, buttonNewTopic, buttonDeleteStudy } from "./init.js"
 
 
 
@@ -21,16 +21,34 @@ ulStudies.addEventListener('click', (event)=>{
 
 // new topic
 buttonNewTopic.addEventListener('click', (event)=>{
+    let nameStudy = event.target.getAttribute('name')
+    let nameNewTopic = prompt('Enter name topic: ')
+    newTopic(nameNewTopic, nameStudy)
+})
+
+// delete study
+ulStudies.addEventListener('click', (event)=>{
     try{
-        let nameNewTopic = prompt('Enter name topic: ')
         let nameStudy = event.target.getAttribute('name')
-        newTopic(nameNewTopic, nameStudy)
+        if(nameStudy!==null){
+        buttonDeleteStudy.setAttribute('name', nameStudy)
+        buttonDeleteStudy.removeAttribute('disabled')
+        }
     }catch{
-        alert('Cancel')
+        console.log('Error')
+    }
+})
+buttonDeleteStudy.addEventListener('click', (event)=>{
+    deleteStudy(event)
+})
+
+// delete topic
+ulStudies.addEventListener('click', (event)=>{
+    let nameStudy = event.target.getAttribute('name')
+    if(nameStudy!==null){
+    deleteTopic(nameStudy)
     }
 })
 
 
-reloadPage()
-saveTopic()
-loadTopicCheckeds()
+loadContent()
