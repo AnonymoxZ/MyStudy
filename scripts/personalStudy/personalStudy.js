@@ -43,11 +43,12 @@ buttonDeleteStudy.addEventListener('click', (event)=>{
 })
 
 // delete topic
-ulStudies.addEventListener('click', (event)=>{
+/**
+ * FAZER TESTES, CONCERTAR BUGS
+ */
+window.addEventListener('click', (event)=>{
     let nameStudy = event.target.getAttribute('name')
-    if(nameStudy!==null){
     deleteTopic(nameStudy)
-    }
 })
 
 

@@ -1,4 +1,4 @@
-// tools to texts
+// tools 
 
 export function stringFormated(string){
     /**
@@ -36,3 +36,4 @@ export function titleCase(text){
     let strArr = title.join(' ')
     return stringFormated(strArr.toString())
 }
+

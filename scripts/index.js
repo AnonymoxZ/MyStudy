@@ -17,7 +17,6 @@ for(let i=0;i<studys.length;i++){
 }
 
 
-// this function select subjects links and show in subjects section
 window.showTopic = (event)=>{
     const titleSubject = document.querySelector('#title-subject')
     const listTopics = document.querySelector('#list-topics')
@@ -33,42 +32,42 @@ window.showTopic = (event)=>{
 
 // Function to save checkboxes checked [ localStorage ]
 window.saveTopic = (event)=>{
-    let cont = localStorage.length
-    let topic = event.target.name
-    let checkbox = event.target.checked
-    
-    if(localStorage.length == 0){
-        localStorage.setItem(0, topic)
-        cont++
-    }else{
-        if(!checkbox){
-            for(let i=0;i<=localStorage.length;i++){
-                let keyItem = localStorage.key(i)
-                let valueItem = localStorage.getItem(keyItem)
-                if(topic == valueItem){
-                    localStorage.removeItem(keyItem)
-                }
-            }
-        }else if(checkbox){
-            localStorage.setItem(cont, topic)
-            cont++
+    let topic = event.target.name;
+    let checkbox = event.target.checked;
+    let nameKey = 'topics-studies';
+
+    let stoData = localStorage.getItem(nameKey);
+    let arrKeys = JSON.parse(stoData) ?? [];
+    if (checkbox) {
+        // add
+        if (!arrKeys.includes(topic)) {
+            arrKeys.push(topic);
         }
+    } else {
+        // remove
+        arrKeys = arrKeys.filter(t => t !== topic);
     }
+    let studyStr = JSON.stringify(arrKeys);
+    localStorage.setItem(nameKey, studyStr);
 }
 
 
-// Function to verify checkbox marked
 ulListStudies.addEventListener('click', ()=>{
+    /**
+     * Function to verify checkbox marked
+    **/
+    let topics = localStorage.getItem('topics-studies')
+    let arrTopics = JSON.parse(topics) ?? []
     let checkboxArr = document.querySelectorAll('input[type="checkbox"]')
     checkboxArr = [...checkboxArr]
     let dataLocalStorageArr = []
-    for(let i=0;i<localStorage.length;i++){
-        let keyData = localStorage.key(i)
-        dataLocalStorageArr.push(localStorage.getItem(keyData))
+    for(let i=0;i<arrTopics.length;i++){
+        let keyData = arrTopics[i]
+        dataLocalStorageArr.push(keyData)
     }
     checkboxArr.forEach((e)=>{
         /* The loop search all identifier name includes in localStorage */
-        if(dataLocalStorageArr.includes(e.name)){
+        if(dataLocalStorageArr.includes(e.getAttribute('name'))){
             e.setAttribute('checked', '')
         }
     })

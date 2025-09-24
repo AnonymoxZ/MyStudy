@@ -36,7 +36,7 @@ export function deleteStudy(event){
         buttonNewTopic.setAttribute('disabled', '')
         buttonDeleteStudy.setAttribute('disabled', '')
     }
-    window.location.reload(true) // POG
+    window.location.reload(true) // POG :(
 }
 
 export function showTopic(event){
@@ -118,21 +118,14 @@ export function deleteTopic(nameStudy){
     let buttonDeleteTopic = document.querySelectorAll('.btn-delete-topic')
     let buttonsDelTopicArr = [...buttonDeleteTopic]
     let studyArr = JSON.parse(localStorage.getItem(nameStudy))
-    for(let btn of buttonsDelTopicArr){
+    buttonsDelTopicArr.forEach((btn)=>{
         btn.addEventListener('click', ()=>{
             let nameButton = btn.getAttribute('name')
-            // console.log(nameButton)
-            // localStorage.removeItem(nameButton)
-            // btn.parentElement.remove()
-            studyArr.forEach((e,i)=>{
-                if(formatData(e)==nameButton){
-                    // console.log(i, e)
-                    studyArr.splice(0,i)
-                }
-            })
-
+            studyArr.splice(studyArr.indexOf(titleCase(nameButton)), 1)
+            let arrayUpdt = JSON.stringify(studyArr)
+            localStorage.setItem(nameStudy, arrayUpdt)
+            localStorage.removeItem(nameButton)
+            btn.parentElement.remove()
         })
-    }
-    // console.log(localStorage.length)
-        // alert(`${nameStudy} guarda ${nameTopic}`)
+    })
 }

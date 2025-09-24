@@ -10,14 +10,16 @@ export function reloadPage(){
         let valueSto = localStorage.getItem(keyVal)
         // verify obj and show topic
         if(valueSto[0] == '[' || valueSto[-1] == ']'){
-            // show studies topics
+            // show studies topics, but dont the grid-studies ENEM
             let keySto = localStorage.key(i)
-            let nameStudy = titleCase(keySto)
-            let liStudy = document.createElement('li')
-            liStudy.setAttribute('class', 'study-li')
-            liStudy.setAttribute('name', keySto)
-            liStudy.innerText = nameStudy
-            ulStudies.appendChild(liStudy)
+            if(keySto!=='topics-studies'){
+                let nameStudy = titleCase(keySto)
+                let liStudy = document.createElement('li')
+                liStudy.setAttribute('class', 'study-li')
+                liStudy.setAttribute('name', keySto)
+                liStudy.innerText = nameStudy
+                ulStudies.appendChild(liStudy)
+            }
         }
     }
 }
