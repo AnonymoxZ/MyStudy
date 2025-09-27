@@ -1,8 +1,0 @@
-learn use: element.event.parentElement.remove()
-
-create diagram project
-code sustainable
-standardize format data-back and text-front
-encapsulate code block
-avoid window.functions => onEvent in HTML
-use data processing => try-catch
