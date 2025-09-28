@@ -21,6 +21,8 @@ header#header {
 }
 figure#background-header img {
     width: 100em;
+    left: 0;
+    top: -20px;
     position: fixed;
     }
 
