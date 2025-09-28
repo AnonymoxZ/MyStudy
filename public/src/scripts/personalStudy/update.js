@@ -1,4 +1,4 @@
-import { titleCase, stringFormated, formatData } from "../modules/tools.js"
+import { titleCase, stringFormated, formatData } from "../modules/tools.js" // Caminho já está correto
 import { ulStudies, listTopics, titleSubject, buttonNewTopic, buttonDeleteStudy } from "./init.js"
 
 
