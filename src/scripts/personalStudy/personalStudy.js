@@ -43,10 +43,10 @@ buttonDeleteStudy.addEventListener('click', (event)=>{
 })
 
 // delete topic
-/**
- * FAZER TESTES, CONCERTAR BUGS
- */
 window.addEventListener('click', (event)=>{
+    /**
+     * MAKE TESTS, RESOLVE BUGS
+    */
     let nameStudy = event.target.getAttribute('name')
     deleteTopic(nameStudy)
 })

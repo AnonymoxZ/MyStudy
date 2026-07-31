@@ -1,4 +1,4 @@
-import { titleCase, stringFormated, formatData } from "../modules/tools.js" // Caminho já está correto
+import { titleCase, stringFormated } from "../modules/tools.js"
 import { ulStudies, listTopics, titleSubject, buttonNewTopic, buttonDeleteStudy } from "./init.js"
 
 
@@ -50,7 +50,7 @@ export function showTopic(event){
             titleSubject.innerText = titleStudy
             buttonNewTopic.removeAttribute('disabled')
             arrStudy.forEach((e)=>{
-            let nameKey = stringFormated(formatData(e))
+            let nameKey = titleCase(e)
             listTopics.innerHTML += `
                 <li class="topic">
                     &nbsp
@@ -72,7 +72,7 @@ export function newTopic(topic, nameStudy){
         alert('Name invalid! Try again')
     }else{
         let nameTopic = titleCase(topic)
-        let nameKey = stringFormated(formatData(topic))
+        let nameKey = titleCase(topic)
         let liTopic = document.createElement('li')
         listTopics.innerHTML += `
             <li class="topic">
@@ -99,14 +99,31 @@ export function saveTopic(){
     checkbox=[...checkbox]
     checkbox.forEach((e)=>{
         e.addEventListener('click', (event)=>{
+
+        /**
+         * Save datas in {topic-studies} equal ENEM topics
+         * 
+         * arrumar isso
+         */
+        let keySto = 'topics-studies'
         if(e.checked){
             let nameTopic = event.target.getAttribute('name')
-            let topicData = String(nameTopic.toUpperCase())
-            localStorage.setItem(topicData, topicData)
+            let topicsSaved = localStorage.getItem(keySto)
+            let topicData = JSON.parse(topicsSaved) ?? []
+            if(topicData.includes(nameTopic)){
+                alert(`Topic ${nameTopic} include in ${localStorage.key(nameTopic)}`)
+            }else if (!topicData.includes(nameTopic)){
+                // console.log(nameTopic)
+                topicData.push(nameTopic)
+                let arrString = JSON.stringify(topicData)
+                localStorage.setItem(keySto, arrString)
+            }
         }else{
             let nameTopic = event.target.getAttribute('name')
-            let topicData = String(nameTopic.toUpperCase())
-            localStorage.removeItem(topicData)
+            let topicData = JSON.parse(localStorage.getItem(keySto))
+            topicData.splice(topicData.indexOf(nameTopic), 1)
+            let arrString = JSON.stringify(topicData)
+            localStorage.setItem(keySto, arrString) 
         }
         })
     })

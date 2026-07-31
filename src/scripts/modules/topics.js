@@ -202,10 +202,11 @@ const math = [
 ];
 
 
-const topicStudies = new Map()
-const studys = ['essay','languages','literatury','geograph',
-'philosophy','history','sociology','biology','physical','chemistry','math'];
-const arrSubjects = [essay, languages, literatury, geograph, philosophy, history, sociology, biology, physical, chemistry, math]
+const topicStudies = new Object()
+const studys = ['essay','languages','math','physical','chemistry', 'biology',
+'geograph','philosophy','history','sociology', 'literatury'];
+
+const arrSubjects = [essay, languages, math, physical, chemistry, biology, geograph, philosophy, history, sociology, literatury]
 
 for(let i=0;i<=studys.length;i++){
   topicStudies[studys[i]] = arrSubjects[i];

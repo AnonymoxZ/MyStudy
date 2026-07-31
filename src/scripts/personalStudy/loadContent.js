@@ -1,6 +1,6 @@
 // reload visual page
 import { ulStudies } from "./init.js"
-import { titleCase } from "../modules/tools.js" // Caminho já está correto
+import { titleCase } from "../modules/tools.js"
 import { saveTopic } from "./update.js"
 
 
