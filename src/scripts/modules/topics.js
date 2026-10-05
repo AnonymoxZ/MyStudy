@@ -38,6 +38,18 @@ const essay = [
 
 const languages = [
   'Variação linguística',
+  // (Morfologia)
+  'Substantivos',
+  'Artigos',
+  'Adjetivos',
+  'Numerais',
+  'Pronomes',
+  'Verbos',
+  'Advérbios',
+  'Preposições',
+  'Conjunções',
+  'Interjeições',
+  // Tipologia Textual
   'Tipos de textos e gêneros textuais',
   'Linguagem não verbal e mista',
   'Interpretação de textos',
