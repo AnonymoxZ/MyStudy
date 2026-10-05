@@ -1,216 +1,226 @@
-/* Topics grid ENEM  */
+/* Topics grid ENEM -  Progressão Pedagógica */
 
-const essay = [
-  'Texto dissertativo-argumentativo',
-  'Como fazer uma introdução',
-  'Como desenvolver sua redação',
-  'Proposta de intervenção',
-  'Como fazer uma boa conclusão',
-  'Competências avaliadas na redação do Enem',
-  'Coesão e coerência',
-  'Citações nas redações do Enem'
+const math = [
+  'As quatro operações básicas e conjuntos numéricos',
+  'MMC e MDC',
+  'Potenciação e Radiciação',
+  'Unidades de medida e conversões',
+  'Razão, Proporção e Regra de Três',
+  'Porcentagem e Matemática Financeira',
+  'Leitura de gráficos e tabelas',
+  'Plano Cartesiano',
+  'Funções e equações de 1º grau',
+  'Funções e equações de 2º grau',
+  'Inequações de 1º e 2º grau',
+  'Equação e função exponencial',
+  'Logaritmos e função logarítmica',
+  'Progressões: PA e PG',
+  'Matrizes e Sistemas Lineares',
+  'Análise combinatória',
+  'Probabilidade',
+  'Estatística (moda, média, mediana e desvio padrão)',
+  'Geometria Plana: áreas, perímetros e razões trigonométricas',
+  'Circunferências e Trigonometria (Funções trigonométricas)',
+  'Geometria Espacial: áreas de sólidos e volumes (prismas, pirâmides, cilindros, cones e esferas)',
+  'Geometria Analítica'
 ];
 
+const essay = [
+  'Competências avaliadas na redação do Enem',
+  'Texto dissertativo-argumentativo: estrutura básica',
+  'Como fazer uma introdução e tese',
+  'Como desenvolver sua redação e repertório sociocultural',
+  'Coesão e coerência (conectivos e encadeamento)',
+  'Citações e estratégias argumentativas nas redações do Enem',
+  'Como fazer uma boa conclusão',
+  'Proposta de intervenção (os 5 elementos obrigatórios)'
+];
 
 const languages = [
-  'Funções de linguagem',
-  'Figuras de linguagem',
-  'Cancioneiros e composições populares',
   'Variação linguística',
-  'Tipos de textos e gêneros de texto',
+  'Tipos de textos e gêneros textuais',
+  'Linguagem não verbal e mista',
   'Interpretação de textos',
-  'Intertextualidade',
-  'Linguagem não verbal',
-  'Semântica',
   'Interpretação de textos jornalísticos e publicitários',
-  'Espanhol para o Enem',
-  'Inglês para o Enem'
+  'Funções da linguagem',
+  'Figuras de linguagem',
+  'Semântica e ambiguidade',
+  'Intertextualidade',
+  'Cancioneiros e composições populares',
+  'Inglês para o Enem',
+  'Espanhol para o Enem'
 ];
 
 const literatury = [
+  'Conceito de Literatura: Poesia, poema, prosa e gêneros literários (Romance)',
   'Literatura Medieval e Trovadorismo',
-  'Renascentismo',
+  'Renascentismo e Humanismo',
   'Barroco e Arcadismo',
-  'Romantismo',
-  'Pré-modernismo e Modernismo',
-  'Modernismo em Portugal: 1ª fase e 2ª fase',
-  'Poesia, poema e prosa',
-  'Gêneros: Romance'
+  'Romantismo (Poesia e Prosa)',
+  'Realismo, Naturalismo e Parnasianismo',
+  'Simbolismo e Pré-Modernismo',
+  'Modernismo em Portugal: 1ª e 2ª fase',
+  'Modernismo no Brasil: 1ª, 2ª e 3ª fases',
+  'Literatura Contemporânea Brasileira'
+];
+
+const chemistry = [
+  'Introdução à Química, Matéria e Separação de misturas',
+  'Química Básica: Estrutura Atômica e Tabela Periódica',
+  'Ligações químicas e Geometria Molecular',
+  'Forças intermoleculares e Polaridade',
+  'Química Inorgânica (Ácidos, Bases, Sais e Óxidos)',
+  'Reações Químicas e Equacionamento',
+  'Estequiometria',
+  'Soluções (Concentração, Diluição e Misturas)',
+  'Termoquímica',
+  'Cinética Química',
+  'Equilíbrio Químico (pH, pOH e Hydrolysis)',
+  'Oxirredução, Pilhas e Eletrólise',
+  'Introdução à Química Orgânica e Isomeria Plana',
+  'Funções Orgânicas e Reações Orgânicas',
+  'Química Ambiental e Sustentabilidade'
+];
+
+const physical = [
+  'O que é Física: Grandezas e Unidades de Medida',
+  'Cinemática: Movimento Uniforme (MU) e Movimento Uniformemente Variado (MUV)',
+  'Aceleração Escalar e Vetorial',
+  'Lançamentos e Aceleração da Gravidade',
+  'Leis de Newton e Dinâmica de Forças',
+  'Energia, Trabalho e Potência',
+  'Hidrostática e Pressão',
+  'Termologia, Calorimetria e Mudanças de Fase',
+  'Termodinâmica e Leis dos Gases',
+  'Fenômenos Ondulatórios e Acústica',
+  'Óptica Geométrica: Refração e Lentes',
+  'Eletrostática',
+  'Eletrodinâmica e Circuitos elétricos',
+  'Eletromagnetismo e Força magnética',
+  'História da Física: Contribuições de Galileu Galilei e Isaac Newton'
+];
+
+const biology = [
+  'Bioquímica Celular (Água, Sais, Glicídios, Lipídios, Proteínas)',
+  'Biologia Celular: Células procariontes e eucariontes (Organelas)',
+  'DNA e RNA: Síntese Proteica e Divisão Celular',
+  'Vírus, Bactérias e Fungos (Microbiologia)',
+  'Parasitoses humanas (Doenças bacterianas, virais e protozooses)',
+  'Fisiologia Humana: Sistema Digestório',
+  'Fisiologia Humana: Sistema Respiratório',
+  'Fisiologia Humana: Sistema Circulatório e Imunologia (Soro e Vacinas)',
+  'Fisiologia Humana: Sistema Nervoso',
+  'Fisiologia Humana: Sistema Esquelético e Muscular',
+  'Fisiologia Humana: Sistema Reprodutor Masculino e Feminino',
+  'Biotecnologia: Células-tronco e Clonagem',
+  'Genética: 1ª e 2ª Lei de Mendel',
+  'Grupos sanguíneos (Sistema ABO e Rh)',
+  'Zoologia: Invertebrados e Vertebrados',
+  'Botânica Básica',
+  'Evolução, Seleção Natural e Especiação',
+  'Ecologia: Relações ecológicas e Cadeias Alimentares',
+  'Ciclos biogeoquímicos',
+  'Poluição e Impactos Ambientais'
+];
+
+const history = [
+  'Civilização Grega',
+  'Civilização Romana',
+  'Feudalismo e Idade Média',
+  'Expansão Marítima e Mercantilismo',
+  'Absolutismo e Reforma Protestante',
+  'Brasil Colônia, Indígenas e Escravidão',
+  'Iluminismo e Revolução Francesa',
+  'Revolução Industrial e Origem do Capitalismo',
+  'Brasil Império, Período Regencial e Revoltas',
+  'Independência do Brasil e da América Espanhola',
+  'Neocolonialismo, Imperialismo e a Conferência de Berlim',
+  '1ª Guerra Mundial e Revolução Russa',
+  'Brasil República: Revoltas na República Velha',
+  'Era Vargas',
+  'Comunismo e Regimes Totalitários (Fascismo e Nazismo)',
+  '2ª Guerra Mundial',
+  'Guerra Fria e América Latina',
+  'Ditadura Militar no Brasil',
+  'Formação do Estado de Israel e a Questão Palestina',
+  'Redemocratização e Brasil Contemporâneo'
 ];
 
 const geograph = [
   'Cartografia e leitura de mapas',
+  'Estruturas geológicas, Geomorfologia e tipos de relevo',
   'Climas do Brasil e climas do mundo',
-  'Acordo de Paris e Conferências ambientais',
-  'Aquecimento global e efeito estufa',
-  'Bacias hidrográficas e escassez',
-  'Estruturas geológicas e tipos de relevo',
   'Biomas do Brasil e biomas do mundo',
-  'Matriz de transporte',
-  'Fontes de energia',
-  'Geografia Urbana e migração',
+  'Bacias hidrográficas e escassez hídrica',
+  'Fontes de energia e Matriz Energética',
+  'Questão agrária e Uso da Terra',
+  'Geografia Urbana e migrações',
+  'Setores da economia brasileira e Matriz de transporte',
   'Globalização',
-  'Blocos econômicos e OMC',
-  'Crescimento da China',
-  'Setores da economia brasileira',
-  'Questão agrária',
-  'Neocolonialismo na África e a Conferência de Berlim'
+  'Blocos econômicos, OMC e Comércio Internacional',
+  'Geopolítica Contemporânea (Crescimento da China, potências e conflitos atuais)',
+  'Aquecimento global e efeito estufa',
+  'Acordo de Paris e Conferências ambientais'
 ];
 
 const philosophy = [
-  'Oque é conhecimento?',
+  'O que é Conhecimento e Filosofia?',
   'Filosofia Clássica e Pré-socráticos',
   'Sócrates e seu legado',
   'Platão e Aristóteles',
-  'Filósofos medievais',
-  'Renascimento',
-  'Descartes e Bacon',
-  'Iluminismo',
-  'Estoicismo',
-  'Nihilismo',
-  'Friedrich Nietzsche',
-
-];
-
-const history = [
-  'Civilização Romana',
-  'Civilização Grega',
-  'Feudalismo',
-  'Absolutismo e Reforma Protestante',
-  'Revolução Francesa',
-  'Revolução Industrial e Origem do Capitalismo',
-  '1ª Guerra Mundial',
-  'Revolução Russa',
-  'Comunismo',
-  'Regimes totalitários',
-  '2ª Guerra Mundial',
-  'Guerra Fria',
-  'Formação de Israel e a Questão Palestina',
-  'Expansão Marítima',
-  'Brasil Colônia e Escravidão',
-  'Brasil Império',
-  'Período Regencial e revoltas',
-  'Brasil República e Revoltas na República Velha',
-  'Independência do Brasil e da América Espanhola',
-  'América Latina',
-  'Era Vargas',
-  'Ditadura Militar'
+  'Filosofia Helenística: Estoicismo, Epicurismo e Ceticismo',
+  'Filósofos Medievais (Patrística e Escolástica)',
+  'Renascimento e Filosofia Política Moderna',
+  'Racionalismo e Empirismo: Descartes e Bacon',
+  'Iluminismo e Contratualismo',
+  'Nihilismo e Friedrich Nietzsche',
+  'Filosofia Contemporânea (Escola de Frankfurt e Existencialismo)'
 ];
 
 const sociology = [
-  'Auguste Comte e o Positivismo',
-  'Bauman',
-  'Foucault',
-  'Cultura material e imaterial',
-  'Patrimônio histórico cultural',
-  'Internet e redes sociais',
-  'Movimentos sociais',
-  'Sociologia do trabalho'
+  'Surgimento da Sociologia e Auguste Comte (Positivismo)',
+  'Os Clássicos da Sociologia: Marx, Durkheim e Weber',
+  'Sociologia do Trabalho e Transformações Produtivas',
+  'Cultura Material e Imaterial',
+  'Patrimônio Histórico e Cultural',
+  'Movimentos Sociais e Direitos Humanos',
+  'Foucault: Poder e Sociedade',
+  'Bauman: Modernidade Líquida',
+  'Internet, Redes Sociais e Sociedade da Informação'
 ];
 
-const biology = [
-  'Biologia Celular: O que são células? Tipos de células',
-  'Células procariontes e células eucariontes',
-  'Fisiologia Humana: (sistemas digestivo)',
-  'Fisiologia humana: (respiratório)',
-  'Fisiologia humana: (reprodutor masculino)',
-  'Fisiologia humana: (reprodutor feminino)',
-  'Fisiologia humana: (nervoso)',
-  'Fisiologia humana: (circulatório)',
-  'Fisiologia humana: (esquelético)',
-  'DNA e RNA',
-  'Células-tronco e clonagem',
-  '1ª Lei de Mendel e 2ª Lei de Mendel',
-  'Grupos sanguíneos',
-  'Imunologia',
-  'Soro e vacinas',
-  'Ciclos biogeoquímicos',
-  'Evolução e seleção natural',
-  'Poluição',
-  'Ecologia e relações ecológicas',
-  'Vertebrados',
-  'Parasitoses humanas',
-  'Vírus, bactérias e fungos'
+const studys = [
+  'math',
+  'essay',
+  'languages',
+  'literatury',
+  'chemistry',
+  'physical',
+  'biology',
+  'history',
+  'geograph',
+  'philosophy',
+  'sociology'
 ];
 
-const physical = [
-  'O que é física',
-  'Movimento uniforme e Movimento uniformemente variado',
-  'Aceleração',
-  'Cinemática',
-  'Aceleração Escalar',
-  'Aceleração da Gravidade',
-  'Leis de Newton',
-  'Energia e trabalho',
-  'Calorimetria',
-  'Termodinâmica',
-  'Fenômenos Ondulatórios',
-  'Acústica',
-  'Eletroestática',
-  'Circuitos elétricos',
-  'Força magnética',
-  'Refração e Lentes',
-  'Hidrostática',
-  'Isaac Newton',
-  'Galileu Galilei'
+const arrSubjects = [
+  math,
+  essay,
+  languages,
+  literatury,
+  chemistry,
+  physical,
+  biology,
+  history,
+  geograph,
+  philosophy,
+  sociology
 ];
 
-const chemistry = [
-  'Introdução a química',
-  'Química básica',
-  'Ligações químicas',
-  'Forças intermoleculares',
-  'Química inorgânica',
-  'Funções Orgânicas e Reações Orgânicas',
-  'Estequiometria',
-  'Soluções',
-  'Cinética Química',
-  'Equilíbrio Químico',
-  'pH e pOH',
-  'Termoquímica',
-  'Oxirredução, Pilhas e Eletrólise',
-  'Química ambiental',
-  'Isomeria Plana',
-  'Separação de misturas'
-];
+const topicStudies = {};
 
-const math = [
-  'As quatro operações básicas',
-  'Potenciação e Radiciação',
-  'Porcentagem',
-  'Regra de Três',
-  'Unidades de medida',
-  'Leitura de gráficos',
-  'Plano Cartesiano',
-  'Funções e equações de 1º grau',
-  'Funções e equações de 2º grau',
-  'Equação exponencial e função exponencial',
-  'Logaritmo',
-  'MMC e MDC',
-  'PA e PG',
-  'Matrizes',
-  'Probabilidade',
-  'Análise combinatória',
-  'Circunferências',
-  'Funções trigonométricas',
-  'Área de sólidos',
-  'Volume de cone',
-  'Estatística (moda, média e mediana)',
-  'Geometria analítica',
-  'Razões trigonométricas',
-  'Inequações de 2º grau'
-];
+studys.forEach((subject, index) => {
+  topicStudies[subject] = arrSubjects[index];
+});
 
-
-const topicStudies = new Object()
-const studys = ['essay','languages','math','physical','chemistry', 'biology',
-'geograph','philosophy','history','sociology', 'literatury'];
-
-const arrSubjects = [essay, languages, math, physical, chemistry, biology, geograph, philosophy, history, sociology, literatury]
-
-for(let i=0;i<=studys.length;i++){
-  topicStudies[studys[i]] = arrSubjects[i];
-}
-
-
-export {studys, topicStudies};
+export { studys, topicStudies };
